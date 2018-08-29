@@ -8,7 +8,8 @@ echo 'PATH="/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"' >  /etc/cron.d/zfs-d
 echo '*/5 * * * * root /root/zfs-quota-default.sh" >> /etc/cron.d/zfs-default
 
 
-echo "*/2 * * * * root ZFS-Quota-Server.sh homes/home >/mnt/home/quota.zfs 2>&1" >> /etc/cron.d/zfs-quota
+echo "*/2 * * * * root /root/zfs-quota-server.sh  pool-data > /home/local/ACAD/quota.zfs 2>&1" >> /etc/cron.d/zfs-quota
+
 ```
 
 the quota.zfs output should look similar to this:
