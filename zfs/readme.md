@@ -2,8 +2,12 @@
 
 This is aimed at network envrionments where end users require some form of quota output.
 
-Put the server script into cron:
+Put the server script into cron will add a default quota of 5g to all new users:
 ```bash
+echo 'PATH="/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"' >  /etc/cron.d/zfs-default
+echo '*/5 * * * * root /root/zfs-quota-default.sh" >> /etc/cron.d/zfs-default
+
+
 echo "*/2 * * * * root ZFS-Quota-Server.sh homes/home >/mnt/home/quota.zfs 2>&1" >> /etc/cron.d/zfs-quota
 ```
 
